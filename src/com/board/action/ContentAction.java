@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.board.controller.CommandAction;
+import com.board.dao.*;
 
 public class ContentAction  implements CommandAction{
 	@Override
