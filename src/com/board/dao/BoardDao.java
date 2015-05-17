@@ -11,27 +11,33 @@ import com.board.beans.Board;
 public class BoardDao extends CommonDao {
 	public static BoardDao getInstance() {
 		BoardDao _instance = new BoardDao();
+		_instance.SetDB();
 		return _instance;
 	}
 	
-	public ArrayList<Board> getArticleList() throws SQLException {
-		ResultSet rs = null;
-		String sql = "select * from board order by idx asc";
-		rs = openConnection().executeQuery(sql);
-		
-		ArrayList<Board>	articleList = new ArrayList<Board>();
-		while(rs.next()) {
-			Board article = new Board();
-			
-			article.setIdx(rs.getInt("idx"));
-			article.setTitle(rs.getString("title"));
-			article.setWriter(rs.getString("writer"));
-			article.setRegdate(rs.getString("regdate"));
-			
-			articleList.add(article);
-		}
-		closeConnection();
+	@SuppressWarnings("unchecked")
+	public ArrayList<Board> getArticleList(int page) throws SQLException {
+		ArrayList<Board> articleList = null;
+		articleList = (ArrayList<Board>)GetDB().queryForList("getArticleList", null, page, 10);
 		return articleList;
+//		return (ArrayList<Board>)GetDB().queryForList("getArticleList", null, page, 10);
 	}
-
+	
+	public Board getArticle(int idx) throws SQLException {
+		Board article = null;
+		article = (Board)GetDB().queryForObject("getArticle", idx);
+		return article;
+	}
+	
+	public void insertArticle(Board article) throws SQLException {
+		GetDB().insert("insertArticle", article);
+	}
+	
+	public void deleteArticle(int idx) throws SQLException {
+		GetDB().delete("deleteArticle", idx);
+	}
+	
+	public void setArticleCount(Board article) throws SQLException {
+		GetDB().update("setArticleCount", article);
+	}
 }

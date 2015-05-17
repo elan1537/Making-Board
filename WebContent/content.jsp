@@ -7,30 +7,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+								 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+				 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+				 				 <link type = "text/css" rel="stylesheet" href = "css/list.css">
 </head>
 <body>
 		<h1>게시글 조회</h1>
 		<table border = "1">
 			<tr>
 				<th>번호</th>
-				<td>${idx}</td>
+				<td>${article.idx}</td>
 				<th>작성자</th>
-				<td>${writer}</td>
+				<td>${article.writer}</td>
+				<th>IP</th>
+				<td>${article.regip}</td>
 				<th>날짜</th>
-				<td>${regdate}</td>
+				<td>${article.regdate}</td>
 				<th>조회수</th>
-				<td>${count}</td>
+				<td>${article.count}</td>
 			</tr>
 			<tr>
 				<th colspan="2">제목</th>
-				<td colspan="6">${title}</td>
+				<td colspan="6">${article.title}</td>
 			</tr>
 			<tr>
 				<th colspan="2">내용</th>
-				<td colspan="6">${content}</td>
+				<td colspan="6">${article.content}</td>
 			</tr>
 		</table>
-		<a href ="delete.do?idx=${idx}">게시글삭제</a>
+		<a href ="delete.do?idx=${article.idx}">게시글삭제</a>
 		<a href = "list.do">목록으로</a>
 </body>
 </html>

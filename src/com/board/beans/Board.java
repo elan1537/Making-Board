@@ -21,6 +21,19 @@ public class Board {
 		private String regdate;
 		private int count;
 		private String content;
+		private String regip;
+		/**
+		 * @return the regip
+		 */
+		public String getRegip() {
+			return regip;
+		}
+		/**
+		 * @param regip the regip to set
+		 */
+		public void setRegip(String regip) {
+			this.regip = regip;
+		}
 		/**
 		 * @return the idx
 		 */
