@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"  "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="Board">
+		<typeAlias alias="map" type="java.util.Map"/>
 		<typeAlias alias="str" type="java.lang.String"/>
 		<typeAlias alias="int" type="java.lang.Integer"/>
 		<typeAlias alias="board" type="com.board.beans.Board"/>
@@ -19,13 +20,13 @@
 		
 		<insert id="insertArticle" parameterClass="board">
 				INSERT INTO Pengpark.board
-					(TITLE, WRITER, REGDATE, COUNT, CONTENT, REGIP)
+					(TITLE, WRITER, REGDATE, COUNT, CONTENT, REGIP, FILENAME)
 				VALUES
-					(#title#, #writer#, now(), #count#, #content#, #regip#)
+					(#title#, #writer#, now(), #count#, #content#, #regip#, #filename#)
 		</insert>
 		
 		<update id="setArticleCount" parameterClass="board">
-			update Pengpark.board set count = #count# where idx = #idx#
+			update board set count = #count# where idx = #idx#
 		</update>
 		
 </sqlMap>

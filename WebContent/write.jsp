@@ -15,10 +15,11 @@
 			<div class = "col s12">
 				<div class = "row">
 					<div class="input-field col s12">
-						<form action="insert.do" method="post" >
-							<input type="text" name="title"/><br/>
-							<input type="text" name="writer"/><br/>
-							<textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+						<form action="insert.do" method="post" enctype="multipart/form-data">
+							title : <input type="text" name="title"/><br/>
+							writer : <input type="text" name="writer"/><br/>
+							content : <textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+							file : <input type="file" name="filename"><br/>
 							<input type="submit"/>
 						</form>
 					</div>

@@ -34,6 +34,10 @@
 				<th colspan="2">내용</th>
 				<td colspan="6">${article.content}</td>
 			</tr>
+			<tr>
+				<th colspan="2">첨부파일</th>
+				<td colspan="8">${article.filename}</td>
+			</tr>
 		</table>
 		<a href ="delete.do?idx=${article.idx}">게시글삭제</a>
 		<a href = "list.do">목록으로</a>

@@ -16,14 +16,14 @@
 
 		<body>
 		
-		 <nav>
+		<nav>
     		<div class="nav-wrapper">
       			<a href="list.do" class="brand-logo">List</a>
       			<ul id="nav-mobile" class="right hide-on-med-and-down">
         			<li><a href="write.jsp">글쓰기</a></li>
       			</ul>
     		</div>
-  		</nav>
+    	</nav>
 
 				<table class = "hoverable">
 					<tr>

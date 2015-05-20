@@ -2,19 +2,20 @@ package com.board.controller;
  
 import java.io.*; 
 import java.util.*; 
+
 import javax.servlet.*; 
 import javax.servlet.http.*;
  
 public class ControllerAction extends HttpServlet {
-    private Map commandMap = new HashMap(); // 명령어와 명령어 처리 클래스를 쌍으로 저장
- 
+
+	private Map commandMap = new HashMap(); // 명령어와 명령어 처리 클래스를 쌍으로 저장
     public void init(ServletConfig config) throws ServletException {
         // Common properties 
         loadProperties("com/board/properties/Command"); 
     }
  
     // properties 설정 
-    private void loadProperties(String path) { 
+	private void loadProperties(String path) { 
         ResourceBundle rbHome = ResourceBundle.getBundle(path);// 누구를 실행할지를 rb에
                                                                 // 저장. 
         Enumeration<String> actionEnumHome = rbHome.getKeys();
@@ -25,7 +26,8 @@ public class ControllerAction extends HttpServlet {
             String className = rbHome.getString(command);
  
             try { 
-                Class commandClass = Class.forName(className); // 해당 문자열을 클래스로 만든다 
+   
+				Class commandClass = Class.forName(className); // 해당 문자열을 클래스로 만든다 
                 Object commandInstance = commandClass.newInstance(); // 해당 클래스의 객체를생성
                 commandMap.put(command, commandInstance); // Map 객체인 commandMap에 객체 저장
             } catch (ClassNotFoundException e) {
